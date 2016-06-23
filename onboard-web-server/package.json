@@ -1,0 +1,49 @@
+{
+  "name": "gcp-iot-demo",
+  "version": "0.0.1",
+  "description": "Icebreaker demo",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "debug": "node --debug=5656 index.js",
+    "monitor": "nodemon index.js",
+    "lint": "jshint --exclude ./node_modules,./public . && jscs .",
+    "test": "./node_modules/.bin/mocha --reporter spec test/**/*.js",
+    "testw": "./node_modules/.bin/mocha --reporter spec --growl --watch test/**/*.js",
+    "debian-package": "./node_modules/node-deb/node-deb --verbose -- index.js config.json lib/ public/ node_modules/ package.json"
+  },
+  "node_deb": {
+    "init": "systemd_socket",
+    "templates": {
+      "systemd_service": "./deploy/gcp-iot-demo.service",
+      "systemd_socket": "./deploy/gcp-iot-demo.socket"
+    },
+    "user": "root",
+    "group": "root"
+  },
+  "author": {
+    "email": "cloud-iot@google.com",
+    "name": "Google Cloud Platform"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.13.4",
+    "googleapis": "2.1.7",
+    "jsonfile": "2.2.3",
+    "lodash": "4.11.2",
+    "node-uuid": "1.4.7",
+    "promise": "7.1.1",
+    "request": "2.72.0",
+    "request-json": "0.5.5",
+    "socket.io": "1.4.4"
+  },
+  "devDependencies": {
+    "jscs": "3.0.3",
+    "jshint": "2.9.2",
+    "mocha": "2.4.5",
+    "node-deb": "https://github.com/Zarmada/node-deb.git#develop",
+    "root-require": "0.3.1",
+    "should": "8.3.1",
+    "should-sinon": "0.0.5"
+  }
+}

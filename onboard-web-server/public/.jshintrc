@@ -1,0 +1,16 @@
+{
+  "camelcase" : true,
+  "indent": 2,
+  "undef": true,
+  "quotmark": "single",
+  "maxlen": 120,
+  "trailing": true,
+  "curly": true,
+  "browser" : true,
+  "devel" : true,
+  "strict" : "implied",
+  "globals" : {
+    "io" : true,
+    "Vue" : true
+  }
+}

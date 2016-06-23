@@ -1,0 +1,241 @@
+<html>
+  <head>
+    <title>Google - Icebreaker Demo</title>
+    <link rel="stylesheet" href="/lib/material-icons-fonts.css">
+    <link rel="stylesheet" href="/lib/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="/lib/roboto-fonts.css" type="text/css">
+    <link rel="stylesheet" href="/lib/dialog-polyfill.css" type="text/css">
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="/lib/dialog-polyfill.js"></script>
+    <script src="/lib/analytics.js" async></script>
+  </head>
+
+  <body id="app">
+    <div class="header">
+      <div class="mdl-grid">
+        <a href="/">
+          <img class="google-logo" src="/img/gcp-header-logo.png">
+        </a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col">
+          <h1>Welcome to the Icebreaker Demo</h1>
+          <p>In several short steps we will show you how easy it is to connect a sensor to your board and start sending data the the Cloud.</p>
+        </div>
+      </div>
+    </div>
+
+    <div v-show="activeStep < 3" class="step-active">
+      <div class="mdl-grid">
+
+        <div class="mdl-cell mdl-cell--2-col">
+          <h4>Step 1</h4>
+        </div>
+        <div class="mdl-cell mdl-cell--10-col">
+          <h3>First locate your sensor</h3>
+
+          <div class="beagle-bone-sensor-selection">
+            <div class="sensor-selection" v-bind:class="{ hasSelection : !!selectedSensor }">
+              <div v-for="sensor in availableSensors" draggable="false"
+                 class="sensor"
+                 v-bind:class="{ selected : sensor == selectedSensor }"
+                 v-on:click="selectSensor(sensor)">
+                <div class="sensor-part1">
+                  <img :src="'img/thumbs/' + sensor.thumb" draggable="false" />
+                  <div>
+                    {{ sensor.name }}
+                  </div>
+                </div>
+                <div class="sensor-description">
+                  {{ sensor.description }}
+                </div>
+                <div>
+                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                    Select
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div v-show="activeStep > 2" class="step-done">
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--2-col">
+          <h4>Step 1</h4>
+        </div>
+        <div class="mdl-cell mdl-cell--10-col">
+          <h3 id="step-1-complete"><i class="material-icons">done</i> {{selectedSensor.name}} up and running!</h3>
+        </div>
+      </div>
+    </div>
+
+    <div v-show="selectedSensor && activeStep < 3" class="step-active">
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--2-col">
+
+        </div>
+        <div class="mdl-cell mdl-cell--10-col">
+          <h4 id="connect-your-sensor">Connect your {{selectedSensor.name.toLowerCase()}}</h4>
+            <p v-show="selectedSensor.connection == 'i2c'">
+              The {{selectedSensor.name.toLowerCase()}} plugs into one of the grove ports on the BeagleBone Green. Note: these ports are not identical, make sure it is the one shown.
+            </p>
+            <p v-show="selectedSensor.connection == 'ain0'">
+              The {{selectedSensor.name.toLowerCase()}} plugs into any analog port. Plug it into the AIN 0.
+            </p>
+            <p v-show="selectedSensor.connection == 'ain2'">
+              The {{selectedSensor.name.toLowerCase()}} plugs into any analog port. Plug it into the AIN 2.
+            </p>
+            <p v-show="selectedSensor.connection == 'analog'">
+              To connect the {{selectedSensor.name.toLowerCase()}} to your BeagleBone Green you’ll need the Analog to Digital Converter (ADC) module too.
+              On one side it has an I2C connector and on the other an analog one. Make sure the labeling on the connecter matches the one you’re connecting with.
+            </p>
+            <p v-show="selectedSensor.connection == 'gpio115'">
+              The {{selectedSensor.name.toLowerCase()}} plugs into GPIO 115.
+            </p>
+            <p v-show="selectedSensor.connection == 'gpio117'">
+              The {{selectedSensor.name.toLowerCase()}} plugs into GPIO 117.
+            </p>
+            
+            <div class="diagram" v-show="selectedSensor.connection == 'i2c'">
+              <img src="img/bbg_i2c.png" class="beaglebone beaglebone-big">
+              <img class="digital" src="img/icons/digital.png" />
+              <label class="i2c">I2C</label>
+              <img class="arrow" src="img/arrow.png" />
+              <img class="accelerometer" v-show="selectedSensor.name == 'Accelerometer'" :src="'img/thumbs/' + selectedSensor.thumb" draggable="false" />
+            </div>
+
+            <div class="diagram" v-show="selectedSensor.connection == 'ain0' || selectedSensor.connection == 'ain2'">
+              <img v-show="selectedSensor.connection == 'ain0'" class="beaglebone beaglebone-big" src="img/thumbs/ain0.png" />
+              <img v-show="selectedSensor.connection == 'ain2'" class="beaglebone beaglebone-big" src="img/thumbs/ain2.png" />
+              <img class="arrow" src="img/arrow.png" />
+
+              <img :src="'img/thumbs/' + selectedSensor.thumb" draggable="false" />
+            </div>
+            
+            <div class="diagram" v-show="selectedSensor.connection == 'gpio115' || selectedSensor.connection == 'gpio117'">
+              <img v-show="selectedSensor.connection == 'gpio115'" class="beaglebone beaglebone-big" src="img/thumbs/gpio115.png" />
+              <img v-show="selectedSensor.connection == 'gpio117'" class="beaglebone beaglebone-big" src="img/thumbs/gpio117.png" />
+              <img class="arrow" src="img/arrow.png" />
+              <img :src="'img/thumbs/' + selectedSensor.thumb" draggable="false"/>
+            </div>
+
+            <h4>Collecting data from your {{selectedSensor.name.toLowerCase()}}</h4>
+            <p>Now that you sensor is physically connected, we will start reading data from it locally on the device</p>
+            <p>
+              <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="toggle-sensor-data">
+                <input v-model="showSensorOutput" v-on:click="toggleSensorOutput"
+                     type="checkbox" id="toggle-sensor-data" class="mdl-switch__input" >
+                <span class="mdl-switch__label"></span>
+              </label>
+              <span>Start collecting data</span>
+            </p>
+
+            <b v-show="showSensorOutput">Verify your sensor is generating output</b>
+            <p v-show="showSensorOutput" class="raw-data" id="sensor-log"></p>
+            <p v-show="showSensorOutput && !hasData" class="hint">See nothing? Re-check your connections carefully!</p>
+            <p v-show="showSensorOutput && hasData" class="hint">{{ selectedSensor.hint }}</p>
+
+          <div>
+            <button v-show="userHasVerifiedSensor" v-on:click="nextStep" v-attr="disabled: !userHasVerifiedSensor"
+                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+              Looking good
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div v-show="activeStep < 3" class="step-inactive">
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--2-col">
+          <h4>Step 2</h4>
+        </div>
+        <div class="mdl-cell mdl-cell--10-col">
+          <h3>Send data to the cloud</h3>
+          <p>In this step, you will send data into Google Cloud Platform and read out the data in another place.</p>
+        </div>
+      </div>
+    </div>
+
+    <div v-show="activeStep == 3" class="step-active">
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--2-col">
+          <h4>Step 2</h4>
+        </div>
+        <div class="mdl-cell mdl-cell--10-col">
+          <h3 id="send-data-to-cloud">Let's send this data to the cloud!</h3>
+          <p>Next we'll show you that your data can be stored in the cloud, so it can be accessed by another client anywhere on the planet.</p>
+          <div class="cloud-switch-container">
+            <img src="img/gcp-demo.png" class="gcp-demo">
+            <div class="cloud-switch" v-show="hasInternet">
+              <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="enable-cloud">
+                <input v-model="enableDataPublication" v-on:click="toggleDataPublication"
+                    type="checkbox" id="enable-cloud" class="mdl-switch__input" >
+                <span class="mdl-switch__label"></span>
+              </label>
+              <p>Flip this switch to start sending the sensory data into the cloud.</p>
+            </div>
+            <div class="cloud-switch" v-show="!hasInternet">
+              <p><div class="mdl-spinner mdl-js-spinner is-active"></div></p>
+              Your BeagleBone doesn't have a working internet connection. <br />
+              Get that up-and-running before you can send data to the cloud.<br />
+              Need help? See the <a href="{{ defaultUrl }}/troubleshooting">troubleshooting</a> page.
+            </div>
+          </div>
+
+          <div id="make-roundtrip" v-show="enableDataPublication">
+            <h3>Make the round-trip</h3>
+            <p>Now that your data is being sent to the cloud, it's time to read out data from another view.</p>
+            <p>Visit 
+              <a href="{{ sensorDataUrl }}" v-on:click="openDataLink(sensorDataUrl)" target="_blank">
+                {{ sensorDataUrl }}
+              </a>
+            </p>
+            <a href="/" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+              Start over
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="mdl-mini-footer">
+      <div class="mdl-grid">
+        <div class="mdl-mini-footer__left-section">
+          <div class="mdl-logo">Getting started with IoT &amp; Google Cloud</div>
+          <ul class="mdl-mini-footer__link-list">
+            <li><a href="{{ defaultUrl }}/troubleshooting">Help</a></li>
+            <li><a href="{{ defaultUrl }}/terms">Privacy & Terms</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <dialog class="mdl-dialog">
+      <h4 class="mdl-dialog__title">Icebreaker Demo</h4>
+      <div class="mdl-dialog__content">
+        <p>
+          Your session has expired, click the generate session button to generate a new data session and continue sending data to the Google Cloud Platform.
+        </p>
+      </div>
+      <div class="mdl-dialog__actions">
+        <span class="mdl-spinner mdl-js-spinner mdl-spinner--single-color"></span>
+        <button type="button" class="mdl-button generate">Generate session</button>
+        <button type="button" class="mdl-button close">Cancel</button>
+      </div>
+    </dialog>
+
+    <script src="/lib/material.js"></script>
+    <script src="/third_party/vue/vue.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/third_party/underscore/underscore-min.js"></script>
+    <script src="/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>Google - My First IoT</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
+    <link href="/public/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="/public/lib/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="/public/lib/material-icons-fonts.css">
+  </head>
+
+  <body>
+    <header>
+      <img class="logo" src="/public/img/gcp-header-logo.png" srcset="/public/img/gcp-header-logo_2x.png 2x" alt="Google Cloud Platform">
+    </header>
+
+    <h4 class="header-title">Simulated IoT Device</h4>
+
+    <section id="graph">
+      <div class="graph">
+        <div class="bar-container" style="background-color: #1f77b4;"><div class="bar x"></div><div class="label">X</div></div>
+      </div>
+
+      <div class="dial-container">
+        <input value="0" class="dial" data-skin="tron" data-width="180" data-cursor=true data-thickness=.2 data-fgColor="#ff7f0e">
+      </div>      
+
+      <div class="graph-error">
+        <h4>No accelerometer found on your device!</h4>
+        <p>Please use a mobile phone to act as a mobile sensor</p>
+      </div>
+    </section>
+  </body>
+
+  <script> var sessionId = "{{sessionId}}"; </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="/public/third_party/jquery-knob/knob.js"></script>
+  <script src="/public/lib/material.js"></script>
+  <script src="/public/main.js"></script>
+  <script src="/public/third_party/underscore/underscore-min.js"></script>
+
+</html>

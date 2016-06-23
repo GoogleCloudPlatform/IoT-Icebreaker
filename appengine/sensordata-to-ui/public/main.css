@@ -1,0 +1,168 @@
+.mdl-grid{
+  max-width: 960px;
+}
+
+.header{
+  display: block;
+  width: 100%;
+  height: 58px;
+  background-color: #fafafa;
+  border-bottom: 1px solid #eee;
+  box-sizing: border-box;
+  padding-top: 8px;
+  padding-left: 20px;
+}
+
+.google-logo{
+  height: 24px;
+  width: 188px;
+}
+
+h3, h4, h5{
+  margin-top: 10;
+}
+
+.beaglebone-big {
+  width: 300px;
+}
+
+.beagle-bone-sensor-selection {
+  display: block;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.beagle-image {
+  display: inline-block;
+  position: relative;
+}
+
+.sensor-selections {
+  display: inline-block;
+  left: -20px;
+  position: relative;
+  top: 40px;
+}
+
+.hero {
+  background-color: #2196F3;
+  color: white;
+}
+
+.step-inactive {
+  background-color: #eee;
+  color: #aaa;
+}
+
+.step-active {
+  margin-bottom: 40px;
+}
+
+.step-done {
+  background-color: #eee;
+  color: #4CAF50;
+}
+
+.cloud-illustration {
+  width: 400px;
+}
+
+.cloud-switch {
+  left: 250px;
+  position: relative;
+  top: -170px;
+}
+
+.raw-data, .graph {
+  width: 100%;
+  box-sizing: border-box;
+  height: 250px;
+  margin-top:8px;
+  padding: 8px;
+}
+
+.raw-data {
+  background-color: #eee;
+  border: 1px solid #ddd;
+  font-family: courier;
+  overflow: scroll;
+}
+
+.mdl-tabs {
+  margin-bottom: 24px;
+}
+
+.url {
+  background-color: #eee;
+  border: 1px solid #ddd;
+  display: inline-block;
+  font-family: courier;
+  padding: 8px;
+}
+
+.right-aligned {
+  float: right;
+  position: relative;
+  top: -60px;
+}
+
+.phone {
+  margin-right: 24px;
+  float: left;
+  width: 100px;
+}
+
+.live {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+.loader {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.mdl-grid.qr-code {
+  background-color: white;
+  height: 200px;
+  margin-top: 20px;
+  width: 450px;
+}
+.qr-code img {
+  float: left;
+  margin-right: 10px;
+}
+
+#legend {
+  text-align: center;
+  width: 100%;
+}
+#legend span {
+  margin-left: 10px;
+}
+
+.extra-info {
+  display: none;
+  margin-top: 40px;
+}
+.extra-info img {
+  width: 80%;
+}
+
+.inspirational {
+  position: relative;
+  width: 80%;
+}
+.inspirational img {
+  width: 100%;
+}
+.inspirational .overlay {
+  background-color: black;
+  bottom: 5px;
+  color: white;
+  font-size: 250%;
+  line-height: 100%;
+  position: absolute;
+  right: 5px;
+  text-align: right;
+}

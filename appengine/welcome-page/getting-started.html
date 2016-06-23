@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <title>IoT Developer Prototyping Kit</title>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/public/lib/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="/public/lib/material-icons.css">
+    <link rel="stylesheet" href="/public/styles.css">
+
+    <script src="/public/lib/analytics.js" async></script>
+  </head>
+
+  </body>
+    <div class="header">
+      <div class="mdl-grid">
+        <img class="google-logo" src="/public/img/gcp-header-logo.png" srcset="/public/img/gcp-header-logo-2x.png 2x" alt="Google Cloud Platform">
+      </div>
+    </div>
+
+    <div class="hero-getting-started">
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col">
+          <h1>Let's get started!</h1>
+          <p>So you have your IoT prototyping Kit in front of you. Lets get it connected and run through a quick demo.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--12-col">
+        <h3>Connect to the Network</h3>
+      </div>
+      <div class="mdl-cell mdl-cell--6-col">
+        <p>The  Kit is equipped with the Seeed Studio BeagleBone Green wireless board. Follow these steps to get it connected</p>
+
+        <ul>
+          <li>Connect the micro USB cable to the board and to a USB power supply - this can be your computer or a USB charger</li>
+          <li>After a minute or so - you should see a BeagleBoneNNNNNN network appear on your list of available wifi networks</li>
+          <li>Connect to this wifi network with your mobile phone and you should see a network provisioning screen come up</li>
+          <li>If you are connecting via a laptop, connect to this provisioning screen directly at http://192.168.8.1/login/</li>
+          <li>Choose to connect to your local network by choosing an SSID and specifying a password, your board should connect and display the IP address of your board on the local network - make a note of it</li>
+          <li>As currently configured you can now browse the local on-board BeagleBone documentaion - but you can click cancel (on your phone) or close and reconnect to your main wireless (if on a computer)</li>
+        </ul>
+        <p> Your board shoud now be connected</p>
+      </div>
+    </div>
+
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--12-col">
+        <h3>Connect to the demo</h3>
+      </div>
+      <div class="mdl-cell mdl-cell--6-col">
+        <p>The demo experience we'll get started with runs a small server on your board - we want to connect to that now. Your board should be reachable over a local <a href="https://en.wikipedia.org/wiki/Multicast_DNS">multicast DNS</a> name of "beaglebone.local" - but if that does not work, try the IP address you noted earlier.
+        <p>My BeagleBone's IP address is: </p>
+        <p><input id="ipaddress" class="ipaddress" value="beaglebone.local"/></p>
+        <div>
+          <div class="waiting">
+            <div class="mdl-spinner mdl-js-spinner is-active"></div>
+            <div>(this may take up to a few minutes)</div>
+          </div>
+
+          <a id="link-to-beaglebone" class="link-to-beaglebone" href="#" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+            Looking for your BeagleBone...
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="/public/lib/jquery-2.2.0.min.js"></script>
+  <script src="/public/lib/underscore-min.js"></script>
+  <script src="/public/lib/material.js"></script>
+  <script>var gae_app_id = "{{gae_app_id}}";</script>
+  <script src="/public/getting-started.js"></script>
+</html>

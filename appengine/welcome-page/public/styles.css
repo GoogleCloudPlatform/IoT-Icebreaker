@@ -1,0 +1,143 @@
+h3, h4, h5 {
+  margin-top: 10;
+}
+
+.beaglebone-big {
+  width: 280px;
+}
+
+.beagle-bone-sensor-selection {
+  display: block;
+  width:100%;
+  margin-bottom: 40px;
+}
+
+.beagle-image {
+  position: relative;
+  display: inline-block;;
+}
+
+.cloud-illustration {
+  width: 400px;
+}
+
+.cloud-switch {
+  left: 250px;
+  position: relative;
+  top: -170px;
+}
+
+.graph {
+  background-color: yellow;
+  box-sizing: border-box;
+  height: 250px;
+  margin-top: 8px;
+  width: 100%;
+}
+
+.google-logo {
+  height: 30px;
+}
+
+.header {
+  background: #f5f5f5;
+  background: -moz-linear-gradient(top,#fafafa,#f5f5f5);
+  background: -webkit-linear-gradient(top,#fafafa,#f5f5f5);
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0,#fafafa),color-stop(1,#f5f5f5));
+  background: linear-gradient(top,#fafafa,#f5f5f5);
+  border-bottom: 1px solid #eee;
+
+  padding: 10px;
+  text-align: center;
+}
+
+.hero {
+  background-image: url("/public/img/bbg-hero-image.jpg");
+  background-size: cover;
+  color: white;
+  padding: 60px 0px;
+}
+
+.hero-getting-started {
+  background-color: #2196F3;
+  color: white;
+}
+
+.ipaddress {
+  font-size: 150%;
+  padding: 5px;
+  text-align: center;
+}
+
+.link-to-beaglebone {
+  display: none;
+}
+
+.live {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+.mdl-grid {
+  max-width: 960px;
+}
+
+.mdl-tabs {
+  margin-bottom: 24px;
+}
+
+.phone {
+  float: left;
+  margin-right: 24px;
+  width: 100px;
+}
+
+.raw-data {
+  background-color: #eee;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  font-family: courier;
+  height: 250px;
+  margin-top: 8px;
+  overflow:scroll;
+  padding: 8px;
+  width: 100%;
+}
+
+.right-aligned {
+  float: right;
+  position: relative;
+  top: -60px;
+}
+
+.secondary-options {
+  padding: 40px 0px;
+}
+
+.sensor-selections {
+  display: inline-block;
+  position: relative;
+  top: 40px;
+}
+
+.step-active {
+  margin-bottom: 40px;
+}
+
+.step-inactive {
+  background-color: #eee;
+  color: #aaa;
+}
+
+.step-done {
+  background-color: #eee;
+  color: #4CAF50;
+}
+
+.url {
+  background-color: #eee;
+  border: 1px solid #ddd;
+  display: inline-block;
+  font-family: courier;
+  padding: 8px;
+}

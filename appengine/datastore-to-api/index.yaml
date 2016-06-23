@@ -1,0 +1,6 @@
+indexes:
+
+- kind: SensorData
+  properties:
+  - name: session_id
+  - name: timestamp

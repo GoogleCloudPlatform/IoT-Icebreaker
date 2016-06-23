@@ -1,0 +1,25 @@
+{
+  "maxerr"        : 50,       // {int} Maximum error before stopping
+  "camelcase"     : true,     // true: Identifiers must be in camelCase
+  "curly"         : true,     // true: Require {} for every new block or scope
+  "eqeqeq"        : true,     // true: Require triple equals (===) for comparison
+  "forin"         : true,     // true: Require filtering for..in loops with obj.hasOwnProperty()
+  "freeze"        : true,     // true: prohibits overwriting prototypes of native objects such as Array, Date etc.
+  "immed"         : true,     // true: Require immediate invocations to be wrapped in parens e.g. `(function () { } ());`
+  "noarg"         : true,     // true: Prohibit use of `arguments.caller` and `arguments.callee`
+  "noempty"       : true,     // true: Prohibit use of empty blocks
+  "nonbsp"        : true,     // true: Prohibit "non-breaking whitespace" characters.
+  "undef"         : true,     // true: Require all non-global variables to be declared (prevents global leaks)
+  "maxlen"        : 120,      // {int} Max number of characters per line
+  "node"          : true,     // Node.js
+  "expr"          : true,
+  "globals"       : {
+    /* MOCHA */
+    "describe"    : false,
+    "it"          : false,
+    "before"      : false,
+    "beforeEach"  : false,
+    "after"       : false,
+    "afterEach"   : false
+  }
+}

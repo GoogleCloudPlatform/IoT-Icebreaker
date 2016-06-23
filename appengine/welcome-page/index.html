@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <title>IoT Developer Prototyping Kit</title>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/public/lib/material.pink-green.min.css" />
+    <link rel="stylesheet" href="/public/lib/material-icons.css">
+    <link rel="stylesheet" href="/public/styles.css">
+
+    <script src="/public/lib/analytics.js" async></script>
+  </head>
+
+  </body>
+    <div class="header">
+      <div class="mdl-grid">
+        <img class="google-logo" src="/public/img/gcp-header-logo.png" srcset="/public/img/gcp-header-logo-2x.png 2x" alt="Google Cloud Platform">
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col">
+          <h1>Get started with our IoT developer prototyping kit</h1>
+          <p>Google has worked with <a href="http://www.seeedstudio.com/">Seeed Studio</a> and <a href="http://beagleboard.org/">BeagleBoard.org</a> to put together a Developer prototyping kit based on the new Seeed Studio BeagleBone Green Wireless board.</p>
+
+          <h4>This board includes</h4>
+
+          <ul>
+              <li>New improvements to the original BeagleBone Green, including built in wi-fi and bluetooth radios</li>
+              <li>A fully Open Hardware design</li>
+              <li>Built in Grove connectors, allow for prototyping without the need for soldering or complex breadboard work.</li>
+              <li>Built in onboard flash - lets you use SD card as fully removable</li>
+              <li>Built in PRU real-time co-processor - well suited for certain industrial protocols</li>
+              <li>Built in analog to digital conversion - key for many IoT prototyping situations</li>
+          </ul>
+          <p>Don't have the kit? Purchase it <a href="#">here</a>.<p>
+            <a href="/getting-started" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+              Start the kit Demo
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="secondary-options">
+      <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--6-col">
+            <h3>Use your phone</h3>
+            <p>Want to see live sensor data without having a hardware board?<br>You can also use your phone as a simulated device.</p>
+            <p>
+              <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" id="random-url">
+                Start phone demo
+              </button>
+            </p>
+          </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+  <script src="/public/third_party/underscore/underscore-min.js"></script>
+  <script src="/public/lib/material.js"></script>
+  <script src="/public/third_party/uuid/uuid.js"></script>
+  <script>var gae_app_id = "{{gae_app_id}}";</script>
+  <script src="/public/index.js"></script>
+</html>

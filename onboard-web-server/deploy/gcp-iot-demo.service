@@ -1,0 +1,9 @@
+[Service]
+ExecStart=/usr/bin/gcp-iot-demo
+StandardOutput=syslog
+User=root
+Group=root
+Environment=NODE_ENV=production
+Environment=NODE_PATH=/usr/lib/nodejs:/usr/lib/node_modules
+SyslogIdentifier=gcp-iot-demo
+

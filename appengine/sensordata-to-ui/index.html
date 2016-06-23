@@ -1,0 +1,105 @@
+<html>
+  <head>
+    <title>Google - Icebreaker Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/public/main.css">
+    <link rel="stylesheet" href="/public/lib/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="/public/lib/material-icons-fonts.css">
+    <link rel="stylesheet" href="/public/third_party/epoch/epoch.min.css">
+
+    <script src="public/lib/analytics.js" async></script>
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="mdl-grid">
+        <img class="google-logo" src="public/img/gcp-header-logo-2x.png">
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col">
+          <h3>Sensor data being read via Cloud Platform</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="mdl-grid sensor-data" {% if mobile %}style="display:none;"{% endif %}>
+      <div class="mdl-cell mdl-cell--12-col">
+        <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+          <div class="mdl-tabs__tab-bar">
+            <a href="#graph" class="mdl-tabs__tab is-active">In a graph</a>
+            <a href="#raw-data" class="mdl-tabs__tab">Raw Data</a>
+          </div>
+          <div class="mdl-tabs__panel is-active" id="graph">
+            <div class="graph">
+              <h5 id="sensor-name"></h5>
+              <div class="loader"><div class="mdl-spinner mdl-js-spinner is-active"></div><br>Waiting for data</div>
+              <div id="barChart" class="epoch sensordata" style="width: 100%; height: 100%;"></div>
+              <div id="legend"></div>
+            </div>
+          </div>
+          <div class="mdl-tabs__panel" id="raw-data">
+            <div class="raw-data">
+              waiting for data...
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="extra-info">
+        <div class="mdl-cell mdl-cell--12-col">
+          <h3>How this works</h3>
+          <p>Learn about the architecture we used so you can mold it to your use-case.</p>
+          <p><img width=830 src="/public/img/gcp-iot-demo.png"></p>
+        </div>
+
+        <h3>Other potential architectures?</h3>
+        <div class="mdl-cell mdl-cell--12-col">
+          <p>Now it's time for you to get innovating.</p>
+          <img src="/public/img/baby-arch.png" /></br>
+          <img src="/public/img/industrial-iot.png" />
+        </div>
+
+        <div class="mdl-cell mdl-cell--12-col">
+          <h3>More to see and do</h3>
+          <ul>
+            <li><a href="http://www.seeedstudio.com/wiki/Beaglebone_green_wireless">Learn more about the hardware platform of the SeeedStudio BeagleBone Green Wireless</a></li>
+            <li><a href="https://www.hackster.io/challenges/beaglebonegreen/ideas?page=1">Browse some of the ideas folks in the IoT community are brainstorming with this class of board.</a></li>
+            <li>Check out the sensor showcase elsewhere in this lab space</li>
+            <li>Adventurous? check out the bookmark on this station for "on-board IDE" and look at the examples try running the blink sample</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    {% if mobile %}
+      <div class="mdl-grid qr-code">
+        <h4>Simulate an IoT device with your phone</h4>
+        <div class="mdl-cell mdl-cell--12-col">
+          <img src="{{qrUrl}}">
+          <p>To use your phone as a simulated IoT device, scan the QR code, or visit this url on a mobile phone:</p>
+          <p class="url">{{url}}</p>
+        </div>
+        <div>
+            <p>Once your phone is sending data, this page will refresh after a few seconds with a streaming data graph.</p>
+        </div>
+      </div>
+
+    {% endif %}
+
+  </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="/public/third_party/underscore/underscore-min.js"></script>
+  <script src="/public/lib/material.js"></script>
+  <script src="/public/third_party/d3/d3.v3.min.js"></script>
+  <script src="/public/third_party/epoch/epoch.min.js"></script>
+
+  <script>
+    var sessionId = "{{sessionId}}";
+    var gae_app_id = "{{gae_app_id}}";
+  </script>
+  <script src="/public/sensor-data.js"></script>
+</html>

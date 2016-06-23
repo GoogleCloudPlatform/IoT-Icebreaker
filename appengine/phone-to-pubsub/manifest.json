@@ -1,0 +1,5 @@
+{
+  "start_url": "mobile-app.html",
+  "display": "standalone",
+	"orientation": "portrait"
+}

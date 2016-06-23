@@ -1,0 +1,55 @@
+{
+  "configFile": "/etc/gcp-iot-demo.json",
+  "projectId": "cloud-iot",
+  "topicName": "demo-topic",
+  "appengine": {
+    "default": {
+      "url": "https://cloud-iot.appspot.com"
+    },
+    "token": {
+      "module": "token-vendor-dot-"
+    },
+    "sensordata": {
+      "module": "sensordata-dot-"
+    },
+    "pubsub": {
+      "module": "pubsub-to-datastore-dot-"
+    }
+  },
+  "groveModules": [{
+    "name"  : "Accelerometer",
+    "connection" : "i2c",
+    "thumb" : "grove-3axis.png",
+    "description" : "Measures changes in motion in 3 directions. This sensor has an I2C connector.",
+    "hint" : "Try changing the orientation of the sensor sideways. You should see the values change accordingly."
+  }, {
+    "name" : "Temperature sensor",
+    "connection" : "ain0",
+    "thumb" : "temperature-sensor.png",
+    "description" : "Measures temperature. This sensor outputs an analog signal.",
+    "hint" : "Try breathing on the sensor. You should see higher values"
+  }, {
+    "name" : "PIR Motion sensor",
+    "connection" : "gpio115",
+    "thumb" : "grove-pir-motion.png",
+    "description" : "When anyone moves in its detecting range, the sensor outputs HIGH on its SIG pin."
+  }, {
+    "name" : "Light sensor",
+    "connection" : "ain2",
+    "thumb" : "light-sensor.png",
+    "description" : "Measures light. This sensor outputs an analog signal.",
+    "hint" : "Try putting your hand over the sensor. You should see lower values for less light."
+  }, {
+    "name" : "Button sensor",
+    "connection" : "gpio117",
+    "thumb" : "grove-button.png",
+    "description" : "When you hold down the momentary button, the sensor sends a HIGH value.",
+    "hint" : "Hold down the button for 5 seconds. You should see positive values"
+  }, {
+    "name" : "Rotary Angle sensor",
+    "connection" : "ain0",
+    "thumb" : "grove-rotary-angle-sensor.png",
+    "description" : "This may be also known as \"potentiometer\". It produces analog output between 0 and Vcc.",
+    "hint" : "Move the rotary angle sensor to see the values changing."
+  }]
+}
