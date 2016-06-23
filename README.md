@@ -117,14 +117,16 @@ Note: you will be prompted to install the alpha component for gcloud
 
 		gcloud preview app deploy --version 1-0-0 appengine/welcome-page/app.yaml 
 
-* [Add the OAuth2 library](https://cloud.google.com/appengine/docs/python/tools/using-libraries-python-27#installing_a_library) for the token vendor service.
+* [Add the OAuth2 library](https://cloud.google.com/appengine/docs/python/tools/using-libraries-python-27#installing_a_library) needed by a couple of the services.
 (please note this [possible issue](https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Homebrew-and-Python.md#note-on-pip-install---user) if you have installed Python via Homebrew). This assume you have [pip already installed](https://pip.pypa.io/en/stable/installing/).
 
 	    mkdir appengine/token-vendor/lib
 	    pip install -t appengine/token-vendor/lib google-api-python-client
 
-**note the warning and workaround in the above docs if you are using homebrew Python - you may need to create ~/.pydistutils.cfg if you are using Homebrew Python.**
+	    mkdir appengine/phone-to-pubsub/lib
+	    pip install -t appengine/phone-to-pubsub/lib google-api-python-client
 
+**note the warning and workaround in the above docs if you are using homebrew Python - you may need to create ~/.pydistutils.cfg if you are using Homebrew Python, and likely want to remove it after.**
 
 * Update the indexes on the database
 
