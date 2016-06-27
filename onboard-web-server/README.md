@@ -1,2 +1,2 @@
-This directory contains the nodejs based server that communicates with the
-hardware using libMRAA and sends data to the demo backend.
+This directory contains the Node.js-based server that communicates with the
+hardware using `libMRAA` and sends data to the demo backend.
