@@ -1,4 +1,4 @@
-# Processing Sensor Data from Cloud Pub/Sub and Storing it in Cloud Datastore
+# Processing Sensor Data from Google Cloud Pub/Sub and Storing it in Google Cloud Datastore
 
 ## Deploying
 
