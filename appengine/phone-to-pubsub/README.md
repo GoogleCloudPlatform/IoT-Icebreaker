@@ -1,8 +1,8 @@
-# Sending mobile phone sensor data to Google Cloud Pub/sub
+# Sending Mobile Phone Sensor Data to Cloud Pub/Sub
 
 ## Running locally
 
-Assuming you've done the setup part in the root of this github repo, you can authenticate with the Google Cloud credentials there.
+Assuming you've done the setup part in the root of this GitHub repo, you can authenticate with your Google Cloud credentials, there.
 
 ```
 export GOOGLE_APPLICATION_CREDENTIALS=../google-cloud-credentials.json
