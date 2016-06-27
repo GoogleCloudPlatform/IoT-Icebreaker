@@ -1,7 +1,7 @@
-# Displaying sensor data from Google Cloud Datastore in a user interface.
+# Displaying Sensor Data from Google Cloud Datastore in a User Interface
 
 ## Deploying
 
-Deploy using https://cloud.google.com/sdk/gcloud/reference/preview/app/deploy:
+Deploy using [`gcloud preview app deploy'](https://cloud.google.com/sdk/gcloud/reference/preview/app/deploy):
 
-`gcloud preview app deploy --project <YOUR_PROJECT_ID>`
+    gcloud preview app deploy --project <YOUR_PROJECT_ID>
