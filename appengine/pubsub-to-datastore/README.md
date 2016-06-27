@@ -1,7 +1,7 @@
-# Processing sensor data from Google Cloud Pub/sub and storing it in Google Cloud Datastore
+# Processing Sensor Data from Cloud Pub/Sub and Storing it in Cloud Datastore
 
 ## Deploying
 
-Deploy using https://cloud.google.com/sdk/gcloud/reference/preview/app/deploy:
+Deploy using [`gcloud preview app deploy`](https://cloud.google.com/sdk/gcloud/reference/preview/app/deploy):
 
-`gcloud preview app deploy --project <YOUR_PROJECT_ID>`
+    gcloud preview app deploy --project <YOUR_PROJECT_ID>
