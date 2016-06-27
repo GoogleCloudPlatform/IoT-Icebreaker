@@ -24,7 +24,7 @@
       <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--12-col">
           <h1>Welcome to the Icebreaker Demo</h1>
-          <p>In several short steps we will show you how easy it is to connect a sensor to your board and start sending data the the Cloud.</p>
+          <p>In several short steps, you will see how easy it is to connect a sensor to your board and start sending data the the cloud.</p>
         </div>
       </div>
     </div>
@@ -36,7 +36,7 @@
           <h4>Step 1</h4>
         </div>
         <div class="mdl-cell mdl-cell--10-col">
-          <h3>First locate your sensor</h3>
+          <h3>Locate your sensor</h3>
 
           <div class="beagle-bone-sensor-selection">
             <div class="sensor-selection" v-bind:class="{ hasSelection : !!selectedSensor }">
@@ -71,7 +71,7 @@
           <h4>Step 1</h4>
         </div>
         <div class="mdl-cell mdl-cell--10-col">
-          <h3 id="step-1-complete"><i class="material-icons">done</i> {{selectedSensor.name}} up and running!</h3>
+          <h3 id="step-1-complete"><i class="material-icons">Done</i>: {{selectedSensor.name}} up and running!</h3>
         </div>
       </div>
     </div>
@@ -84,23 +84,23 @@
         <div class="mdl-cell mdl-cell--10-col">
           <h4 id="connect-your-sensor">Connect your {{selectedSensor.name.toLowerCase()}}</h4>
             <p v-show="selectedSensor.connection == 'i2c'">
-              The {{selectedSensor.name.toLowerCase()}} plugs into one of the grove ports on the BeagleBone Green. Note: these ports are not identical, make sure it is the one shown.
+              The {{selectedSensor.name.toLowerCase()}} plugs into one of the grove ports on the BeagleBone Green. **Note**: These ports are not identical, make sure it is the one shown.
             </p>
             <p v-show="selectedSensor.connection == 'ain0'">
-              The {{selectedSensor.name.toLowerCase()}} plugs into any analog port. Plug it into the AIN 0.
+              The {{selectedSensor.name.toLowerCase()}} plugs into any analog port. Plug it into the `AIN 0` port.
             </p>
             <p v-show="selectedSensor.connection == 'ain2'">
-              The {{selectedSensor.name.toLowerCase()}} plugs into any analog port. Plug it into the AIN 2.
+              The {{selectedSensor.name.toLowerCase()}} plugs into any analog port. Plug it into the`AIN 2` port.
             </p>
             <p v-show="selectedSensor.connection == 'analog'">
-              To connect the {{selectedSensor.name.toLowerCase()}} to your BeagleBone Green you’ll need the Analog to Digital Converter (ADC) module too.
-              On one side it has an I2C connector and on the other an analog one. Make sure the labeling on the connecter matches the one you’re connecting with.
+              To connect the {{selectedSensor.name.toLowerCase()}} to your BeagleBone Green you need the Analog to Digital Converter (ADC) module.
+              On one side, the ADC has an I2C connector, and on the other an analog connector. Make sure the labeling on the connecter matches the one you’re connecting with.
             </p>
             <p v-show="selectedSensor.connection == 'gpio115'">
-              The {{selectedSensor.name.toLowerCase()}} plugs into GPIO 115.
+              The {{selectedSensor.name.toLowerCase()}} plugs into `GPIO 115`.
             </p>
             <p v-show="selectedSensor.connection == 'gpio117'">
-              The {{selectedSensor.name.toLowerCase()}} plugs into GPIO 117.
+              The {{selectedSensor.name.toLowerCase()}} plugs into `GPIO 117`.
             </p>
             
             <div class="diagram" v-show="selectedSensor.connection == 'i2c'">
@@ -127,7 +127,7 @@
             </div>
 
             <h4>Collecting data from your {{selectedSensor.name.toLowerCase()}}</h4>
-            <p>Now that you sensor is physically connected, we will start reading data from it locally on the device</p>
+            <p>Now that your sensor is physically connected, start reading data from it locally on the device</p>
             <p>
               <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="toggle-sensor-data">
                 <input v-model="showSensorOutput" v-on:click="toggleSensorOutput"
@@ -137,7 +137,7 @@
               <span>Start collecting data</span>
             </p>
 
-            <b v-show="showSensorOutput">Verify your sensor is generating output</b>
+            <b v-show="showSensorOutput">Verify your sensor is generating output.</b>
             <p v-show="showSensorOutput" class="raw-data" id="sensor-log"></p>
             <p v-show="showSensorOutput && !hasData" class="hint">See nothing? Re-check your connections carefully!</p>
             <p v-show="showSensorOutput && hasData" class="hint">{{ selectedSensor.hint }}</p>
@@ -159,7 +159,7 @@
         </div>
         <div class="mdl-cell mdl-cell--10-col">
           <h3>Send data to the cloud</h3>
-          <p>In this step, you will send data into Google Cloud Platform and read out the data in another place.</p>
+          <p>In this step, you will send data to Google Cloud Platform and print out the data to another location.</p>
         </div>
       </div>
     </div>
@@ -170,8 +170,8 @@
           <h4>Step 2</h4>
         </div>
         <div class="mdl-cell mdl-cell--10-col">
-          <h3 id="send-data-to-cloud">Let's send this data to the cloud!</h3>
-          <p>Next we'll show you that your data can be stored in the cloud, so it can be accessed by another client anywhere on the planet.</p>
+          <h3 id="send-data-to-cloud">Let's send this data to the cloud</h3>
+          <p>Next store your data in the cloud so it can be accessed by another client anywhere on Earth.</p>
           <div class="cloud-switch-container">
             <img src="img/gcp-demo.png" class="gcp-demo">
             <div class="cloud-switch" v-show="hasInternet">
@@ -180,18 +180,18 @@
                     type="checkbox" id="enable-cloud" class="mdl-switch__input" >
                 <span class="mdl-switch__label"></span>
               </label>
-              <p>Flip this switch to start sending the sensory data into the cloud.</p>
+              <p>Flip this switch to start sending the sensor data to the cloud.</p>
             </div>
             <div class="cloud-switch" v-show="!hasInternet">
               <p><div class="mdl-spinner mdl-js-spinner is-active"></div></p>
-              Your BeagleBone doesn't have a working internet connection. <br />
+              Your BeagleBone doesn't have a working Internet connection. <br />
               Get that up-and-running before you can send data to the cloud.<br />
-              Need help? See the <a href="{{ defaultUrl }}/troubleshooting">troubleshooting</a> page.
+              Need help? <a href="{{ defaultUrl }}/troubleshooting">See the Troubleshooting</a> page.
             </div>
           </div>
 
           <div id="make-roundtrip" v-show="enableDataPublication">
-            <h3>Make the round-trip</h3>
+            <h3>Make the round trip</h3>
             <p>Now that your data is being sent to the cloud, it's time to read out data from another view.</p>
             <p>Visit 
               <a href="{{ sensorDataUrl }}" v-on:click="openDataLink(sensorDataUrl)" target="_blank">
@@ -209,7 +209,7 @@
     <footer class="mdl-mini-footer">
       <div class="mdl-grid">
         <div class="mdl-mini-footer__left-section">
-          <div class="mdl-logo">Getting started with IoT &amp; Google Cloud</div>
+          <div class="mdl-logo">Getting started with IoT &amp; Google Cloud Platform</div>
           <ul class="mdl-mini-footer__link-list">
             <li><a href="{{ defaultUrl }}/troubleshooting">Help</a></li>
             <li><a href="{{ defaultUrl }}/terms">Privacy & Terms</a></li>
@@ -222,7 +222,7 @@
       <h4 class="mdl-dialog__title">Icebreaker Demo</h4>
       <div class="mdl-dialog__content">
         <p>
-          Your session has expired, click the generate session button to generate a new data session and continue sending data to the Google Cloud Platform.
+          Your session has expired, click the **Generate session** button to generate a new data session and continue sending data to Cloud Platform.
         </p>
       </div>
       <div class="mdl-dialog__actions">
