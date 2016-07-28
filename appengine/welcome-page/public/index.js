@@ -34,4 +34,9 @@ $(function() {
     evt.preventDefault();
     window.location.href = url;
   });
+
+  if (window.location.href.includes("phone-redirect")) {
+    window.location.href = url;
+  }
+
 });
