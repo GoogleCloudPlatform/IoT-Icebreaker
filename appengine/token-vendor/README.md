@@ -1,6 +1,6 @@
-# Token vendor
+# Token Vendor
 
-To facilitate clients to access Google Cloud Pub/sub without having to use the credentials that have access to everything.
+Shows how to facilitate clients to access Google Cloud Pub/sub without having to use the credentials that have access to everything.
 
 ## Setup
 
@@ -8,12 +8,12 @@ The application needs service account credentials in `google-cloud-credentials.j
 
 ## Running locally
 
-Run using https://cloud.google.com/appengine/docs/python/tools/devserver:
+Run using [`dev_appserver.py`](https://cloud.google.com/appengine/docs/python/tools/devserver):
 
-`dev_appserver.py .`
+    dev_appserver.py .
 
 ## Deploying
 
-Deploy using https://cloud.google.com/sdk/gcloud/reference/preview/app/deploy:
+Deploy using [`gcloud preview app deploy`](https://cloud.google.com/sdk/gcloud/reference/preview/app/deploy):
 
-`gcloud preview app deploy --project <GOOGLE_CLOUD_PROJECT_ID>`
+    gcloud preview app deploy --project <GOOGLE_CLOUD_PROJECT_ID>
