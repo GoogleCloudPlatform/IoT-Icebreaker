@@ -1,7 +1,7 @@
 # Run the IoT developer kit icebreaker in your own project
 
 This example code shows how to use Google Cloud Platform to process sensor data
-and publish it to Cloud PubSub. It is available to test drive at http://cloud.google.com/solutions/iot/ as an icebreaker demonstration for a developer prototyping kit based on the [SeeedStudio BeagleBone Green Wireless](http://www.seeedstudio.com/wiki/Beaglebone_green_wireless). This is not an official Google product.
+and publish it to Cloud PubSub. It is available to test drive at http://cloud.google.com/solutions/iot/ as an icebreaker demonstration for a developer prototyping kit based on the [SeeedStudio BeagleBone Green Wireless](http://www.seeedstudio.com/wiki/Beaglebone_green_wireless). However this is not an official Google product.
 
 ## How it works
 
